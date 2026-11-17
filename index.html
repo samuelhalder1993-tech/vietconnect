@@ -1380,6 +1380,24 @@ figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-tran
 }
 @media(prefers-reduced-motion:reduce){.page.on:not(.vx3)>section:first-child .wrap>*{animation:none}}
 
+
+/* ---------- Warum Viet Connect ---------- */
+.vx-why{background:var(--night,#100D0C);color:#fff;padding:96px 0 88px}
+.page.vx3 .vx-why .eb{color:var(--gold,#F0B418);margin-bottom:16px}
+.page.vx3 .vx-why h2{color:#fff;max-width:20ch;font-size:clamp(30px,4.1vw,54px);line-height:1.04;letter-spacing:-.04em;text-wrap:balance}
+.page.vx3 .vx-why h2 em{font-style:normal;color:var(--red-hi,#F2334C)}
+.vx-why__grid{list-style:none;margin:52px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#3A3330;border:1px solid #3A3330}
+.vx-why__grid li{background:var(--night,#100D0C);padding:44px 32px 42px;display:flex;flex-direction:column;gap:10px}
+.vx-why__grid svg{width:108px;height:108px;margin:0 0 18px -8px;color:var(--gold,#F0B418);fill:none;stroke:currentColor;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round}
+.page.vx3 .vx-why__grid h3{margin:0;color:#fff;font-size:31px;line-height:1.08;letter-spacing:-.035em}
+.vx-why__grid p{margin:0;font-size:17px;line-height:1.4;color:var(--on-night,#CFC5B8)}
+.vx-why .vx-cta{margin-top:52px}
+.page.vx3 .vx-why .btn.out{border-color:#fff;color:#fff}
+.page.vx3 .vx-why .btn.out:hover{background:#fff;color:var(--night,#100D0C)}
+.page.vx3 .vx-why .btn.red:hover{background:#fff;border-color:#fff;color:var(--night,#100D0C)}
+@media (max-width:1000px){.vx-why__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.vx-why{padding:64px 0 60px}.vx-why__grid{margin-top:36px}.vx-why__grid li{padding:32px 24px 30px}.vx-why__grid svg{width:84px;height:84px}.page.vx3 .vx-why__grid h3{font-size:26px}}
+@media (max-width:620px){.vx-why__grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1534,6 +1552,52 @@ setTimeout(function(){if(i.parentNode)i.parentNode.removeChild(i);},3500);})();
         <li><b>Ansprechperson auf Vietnamesisch</b><span>für Ihre Auszubildenden, während der gesamten Ausbildung</span></li>
         <li><b>Begleitung bis zur Prüfung</b><span>Coaching im festen Takt, Stand jederzeit auf Pathways</span></li>
       </ul>
+    </div>
+  </section>
+
+  <!-- 1b · WARUM VIET CONNECT -->
+  <section class="vx-why" id="warum">
+    <div class="vx-w">
+      <span class="eb">Warum Viet Connect</span>
+      <h2>Wir bleiben, bis Ihr Azubi <em>bestanden hat.</em></h2>
+
+      <ul class="vx-why__grid">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6"/></svg>
+          <h3>2 Länder, 2 Firmen, eine Einheit</h3>
+          <p>Vor Ort in Vietnam und in Deutschland: ein Team, kurze Wege.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <h3>Verantwortung bis zum Ende</h3>
+          <p>Ein Ansprechpartner vom ersten Gespräch bis zum Abschlusszeugnis.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          <h3>100&nbsp;% Transparenz für alle</h3>
+          <p>Sie sehen jederzeit online, wo Ihr Azubi gerade steht.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.2-4.6A8 8 0 1 1 21 12z"/><path d="M9 12h.01M13 12h.01M17 12h.01"/></svg>
+          <h3>Gelungene Integration</h3>
+          <p>Bei Fragen, Sorgen und Behörden an der Seite von Betrieb und Azubi – auf Deutsch und Vietnamesisch.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg>
+          <h3>Keine Abzocke</h3>
+          <p>Keine Vermittlungsgebühr für Azubis – wer fair startet, bleibt.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg>
+          <h3>Top-Qualität</h3>
+          <p>Persönlich ausgewählt, Deutsch geprüft, von Ihnen interviewt.</p>
+        </li>
+      </ul>
+
+      <div class="vx-cta">
+        <a href="#/kontakt" class="btn red">Gespräch vereinbaren</a>
+        <a href="#/unternehmen" class="btn out">Konditionen im Detail</a>
+      </div>
     </div>
   </section>
 
