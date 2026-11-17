@@ -1382,21 +1382,41 @@ figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-tran
 
 
 /* ---------- Warum Viet Connect ---------- */
-.vx-why{background:var(--night,#100D0C);color:#fff;padding:96px 0 88px}
+.vx-why{position:relative;overflow:hidden;background:var(--night,#100D0C);color:#fff;padding:104px 0 96px;isolation:isolate}
+.vx-why::before{content:"";position:absolute;inset:-20% -10% auto auto;width:62vw;height:62vw;max-width:880px;max-height:880px;background:radial-gradient(closest-side,rgba(200,0,30,.20),transparent 70%);z-index:-1;pointer-events:none}
+.vx-why::after{content:"";position:absolute;inset:auto auto -30% -15%;width:52vw;height:52vw;max-width:720px;max-height:720px;background:radial-gradient(closest-side,rgba(240,180,24,.10),transparent 70%);z-index:-1;pointer-events:none}
 .page.vx3 .vx-why .eb{color:var(--gold,#F0B418);margin-bottom:16px}
 .page.vx3 .vx-why h2{color:#fff;max-width:20ch;font-size:clamp(30px,4.1vw,54px);line-height:1.04;letter-spacing:-.04em;text-wrap:balance}
 .page.vx3 .vx-why h2 em{font-style:normal;color:var(--red-hi,#F2334C)}
-.vx-why__grid{list-style:none;margin:52px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#3A3330;border:1px solid #3A3330}
-.vx-why__grid li{background:var(--night,#100D0C);padding:44px 32px 42px;display:flex;flex-direction:column;gap:10px}
-.vx-why__grid svg{width:108px;height:108px;margin:0 0 18px -8px;color:var(--gold,#F0B418);fill:none;stroke:currentColor;stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round}
-.page.vx3 .vx-why__grid h3{margin:0;color:#fff;font-size:31px;line-height:1.08;letter-spacing:-.035em}
-.vx-why__grid p{margin:0;font-size:17px;line-height:1.4;color:var(--on-night,#CFC5B8)}
-.vx-why .vx-cta{margin-top:52px}
+.vx-why__grid{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:why}
+.vx-why__grid li{--mx:30%;--my:0%;counter-increment:why;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:36px 32px 38px;background:linear-gradient(165deg,#1E1816 0%,#140F0E 55%,#100D0C 100%);border:1px solid #2F2826;border-radius:4px;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .45s}
+.vx-why__grid li::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--red-hi,#F2334C),var(--gold,#F0B418));transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.vx-why__grid li::after{content:counter(why,decimal-leading-zero);position:absolute;top:14px;right:22px;font-size:84px;line-height:1;font-weight:800;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(240,180,24,.28);transition:-webkit-text-stroke-color .35s,transform .55s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.vx-why__grid li > *{position:relative;z-index:1}
+.vx-why__grid li:hover,.vx-why__grid li:focus-within{transform:translateY(-6px);border-color:#4A3D2A;box-shadow:0 26px 60px -24px rgba(0,0,0,.9),0 0 0 1px rgba(240,180,24,.08)}
+.vx-why__grid li:hover::before,.vx-why__grid li:focus-within::before{transform:scaleX(1)}
+.vx-why__grid li:hover::after{-webkit-text-stroke-color:rgba(242,51,76,.6);transform:translateY(-4px)}
+.vx-why__glow{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(360px circle at var(--mx) var(--my),rgba(240,180,24,.13),transparent 65%)}
+.vx-why__grid li:hover .vx-why__glow{opacity:1}
+.vx-why__grid svg{box-sizing:content-box;width:34px;height:34px;padding:15px;margin:0 0 22px;border:1px solid rgba(240,180,24,.45);border-radius:4px;background:rgba(240,180,24,.06);color:var(--gold,#F0B418);fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:background .35s,color .35s,border-color .35s,transform .55s cubic-bezier(.2,.8,.2,1)}
+.vx-why__grid li:hover svg,.vx-why__grid li:focus-within svg{background:var(--gold,#F0B418);border-color:var(--gold,#F0B418);color:var(--night,#100D0C);transform:rotate(-6deg) scale(1.06)}
+.page.vx3 .vx-why__grid h3{margin:0;max-width:16ch;color:#fff;font-size:27px;line-height:1.1;letter-spacing:-.03em}
+.vx-why__grid p{margin:0;font-size:17px;line-height:1.45;color:var(--on-night,#CFC5B8)}
+.vx-why .vx-cta{margin-top:56px}
 .page.vx3 .vx-why .btn.out{border-color:#fff;color:#fff}
 .page.vx3 .vx-why .btn.out:hover{background:#fff;color:var(--night,#100D0C)}
 .page.vx3 .vx-why .btn.red:hover{background:#fff;border-color:#fff;color:var(--night,#100D0C)}
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .vx-why__grid li{animation:vxWhyIn linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+    .vx-why__grid li:nth-child(3n+2){animation-range:entry 8% entry 63%}
+    .vx-why__grid li:nth-child(3n){animation-range:entry 16% entry 71%}
+  }
+}
+@keyframes vxWhyIn{from{opacity:0;translate:0 36px}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion:reduce){.vx-why__grid li,.vx-why__grid li::before,.vx-why__grid li::after,.vx-why__grid svg{transition:none}.vx-why__grid li:hover,.vx-why__grid li:focus-within{transform:none}.vx-why__grid li:hover svg{transform:none}}
 @media (max-width:1000px){.vx-why__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:760px){.vx-why{padding:64px 0 60px}.vx-why__grid{margin-top:36px}.vx-why__grid li{padding:32px 24px 30px}.vx-why__grid svg{width:84px;height:84px}.page.vx3 .vx-why__grid h3{font-size:26px}}
+@media (max-width:760px){.vx-why{padding:68px 0 64px}.vx-why__grid{margin-top:36px;gap:12px}.vx-why__grid li{padding:28px 22px 30px}.vx-why__grid li::after{font-size:64px;right:16px}.vx-why__grid svg{width:28px;height:28px;padding:12px;margin-bottom:16px}.page.vx3 .vx-why__grid h3{font-size:23px}.vx-why__grid p{font-size:16px}}
 @media (max-width:620px){.vx-why__grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -1563,31 +1583,37 @@ setTimeout(function(){if(i.parentNode)i.parentNode.removeChild(i);},3500);})();
 
       <ul class="vx-why__grid">
         <li>
+          <span class="vx-why__glow" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M3 10l9-6 9 6"/></svg>
           <h3>2 Länder, 2 Firmen, eine Einheit</h3>
           <p>Vor Ort in Vietnam und in Deutschland: ein Team, kurze Wege.</p>
         </li>
         <li>
+          <span class="vx-why__glow" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
           <h3>Verantwortung bis zum Ende</h3>
           <p>Ein Ansprechpartner vom ersten Gespräch bis zum Abschlusszeugnis.</p>
         </li>
         <li>
+          <span class="vx-why__glow" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
           <h3>100&nbsp;% Transparenz für alle</h3>
           <p>Sie sehen jederzeit online, wo Ihr Azubi gerade steht.</p>
         </li>
         <li>
+          <span class="vx-why__glow" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.2-4.6A8 8 0 1 1 21 12z"/><path d="M9 12h.01M13 12h.01M17 12h.01"/></svg>
           <h3>Gelungene Integration</h3>
           <p>Bei Fragen, Sorgen und Behörden an der Seite von Betrieb und Azubi – auf Deutsch und Vietnamesisch.</p>
         </li>
         <li>
+          <span class="vx-why__glow" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg>
           <h3>Keine Abzocke</h3>
           <p>Keine Vermittlungsgebühr für Azubis – wer fair startet, bleibt.</p>
         </li>
         <li>
+          <span class="vx-why__glow" aria-hidden="true"></span>
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg>
           <h3>Top-Qualität</h3>
           <p>Persönlich ausgewählt, Deutsch geprüft, von Ihnen interviewt.</p>
@@ -5228,6 +5254,18 @@ var PDFB64='JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9w
     }
   });
   scrollen();
+})();
+</script>
+<script>
+/* Warum-Kacheln: Lichtkegel folgt dem Mauszeiger. Rein dekorativ. */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.addEventListener('pointermove',function(e){
+    var li=e.target.closest&&e.target.closest('.vx-why__grid li'); if(!li) return;
+    var r=li.getBoundingClientRect();
+    li.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    li.style.setProperty('--my',(e.clientY-r.top)+'px');
+  },{passive:true});
 })();
 </script>
 </body>
